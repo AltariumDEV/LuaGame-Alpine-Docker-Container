@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  lua:
+    container_name: lua
+#    image: nickblah/lua:5.4-luarocks-alpine
+    build:
+      context: image
+      dockerfile: Dockerfile
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    environment:
+      ENTRY_POINT: "/app/main.lua"
+      WORKING_DIR: "/app"
+    volumes:
+      - "./:/app"
+    working_dir: "/app"

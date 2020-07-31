@@ -1,0 +1,16 @@
+files:
+
+- main.lua (main function file, is the file that gets used most)
+- assets.lua (contains the textures of the game, can be used to make texture packs)
+- functions.lua (contains all the functions and variables)
+- hc.lua (contains all the hardcoded things (aka defaults, itemnames, enemies))
+
+ideas:
+
+- sequencer item (drains your HP, making the game harder)
+- hardcore mode (forces the sequencer item onto you on start, enemies are stronger)
+- baby mode (after every fight, heavy weapons guy will call you baby)
+
+dum fuk juice:
+
+- questionable slap: you slap someone with an organ of questionable choices and instantly perish afterwards
