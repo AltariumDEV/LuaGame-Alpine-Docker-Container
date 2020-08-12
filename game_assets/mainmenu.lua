@@ -8,20 +8,11 @@ mainMenu = [[
 | 2. | Continue Game       < |
 | 3. | Story               < |
 ==============================
-| 4. | Changelog           < |
-| 5. | Credits             < |
-| 6. | Exit Game           < |
+| 4. | Settings            < |
+| 5. | Changelog           < |
+| 6. | Credits             < |
+| 7. | Exit Game           < |
 ==============================
-]],
--- Changelog -- Gets called when you navigate to "Changelog" on the Game Main Menu
-change = [[ 
-===============================
-| Changelog | LuaRPG 1.0      |
-===============================
-|                             |
-|  - Cleaner UI               |
-|                             |
-===============================
 ]],
 -- Story -- Gets called when you navigate to "Story" on the Game Main Menu
 story = [[
@@ -32,6 +23,28 @@ story = [[
 ===============================
 | Enter | Return to menu      |
 =============================== 
+]],
+-- Changelog -- Gets called when you navigate to "Changelog" on the Game Main Menu
+change = [[ 
+===============================
+| Changelog | Version 1.0     |
+===============================
+|                             |
+|  - Cleaner UI               |
+|  - Better Code              |
+|                             |
+===============================
+]],
+-- Changelog -- Gets called when you navigate to "Changelog" on the Game Main Menu
+credits = [[ 
+===============================
+| Credits                     |
+===============================
+|                             |
+|  - Cleaner UI               |
+|  - Better Code              |
+|                             |
+===============================
 ]],
 
 }

@@ -11,7 +11,9 @@ newGame2 = [[
 |    New Game  |  Class       |
 ===============================
 |    Enter a class below      |
-|    Type ?c for classes      |
+|    Warrior, Tank, Archer,   |
+|    Caster, Healer,          |
+|    Engineer                 |
 ===============================
 ]],
 newGame3 = [[
@@ -29,9 +31,9 @@ newGame3 = [[
 -- RPG Main Menu -- Gets called once you are IN the game
 rpgMenu = [[ 
 ===============================
-|  LuaRPG - [PLAYERNAME HERE] |
+|        Game Screen          |
 ===============================
-| 1. | Fight                < |
+| 1. | Dungeons             < |
 | 2. | Shops                < |
 | 3. | Boss Arena           < |
 ===============================
