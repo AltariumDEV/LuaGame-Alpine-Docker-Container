@@ -1,16 +1,20 @@
--- Remember to keep everything in as few files as possible --
-local asts = require 'assets' -- All game "textures" go here in multiline strings
-local func = require 'functions' -- All functions go here (EXP, LevelUp, Damage etc.)
-local hc = require 'hc' -- All hardcoded values are in here.
+-- Main File, this is the initializer file of the code --
 
--- Asset Test
-print(asts.gameMenu)
+local menu1 = require("game_assets/mainmenu")
+local modernterm = require("customlib/modernterm")
+local simpleos = require("customlib/simpleos")
 
--- Hardcode Variable Check
-print(hc.weapons[1])
-print(hc.armor[1])
-print(hc.accessories[1])
-print(hc.default.defaultHP)
-
+print(menu1.mainMenu)
+io.write("//:> ")
+input1 = io.read("*number")
 io.read()
-io.read()
+
+if tonumber(input1) then
+    print("Input was valid")
+    
+else
+    print("Input was invalid")
+    simpleos.sleep(1)
+    modernterm.clearTerm()
+    dofile("main.lua")
+end

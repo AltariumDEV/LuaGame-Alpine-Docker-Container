@@ -50,16 +50,6 @@ RUN set -ex \
     && luarocks --version \
     && lua -v
 
-# add dependencies her
-RUN luarocks install plterm
-
-# TODO: fix later
-# COPY lua-dependencies.sh /tmp/
-#
-# RUN ls -la /tmp \
-#     && cd /tmp \
-#     && sh -c lua-dependencies.sh
-
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
