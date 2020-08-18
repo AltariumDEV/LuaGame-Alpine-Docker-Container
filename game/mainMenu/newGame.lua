@@ -4,22 +4,72 @@ local classes = require("game/rpg_elements/classes")
 local modernterm = require("customlib/modernterm")
 local gf = require("customlib/gamefunc")
 
-modernterm.clearTerm()
+-- Name Selection
 print(menu2.newGame1)
-io.write("//:> ")
-inputng1 = io.read()
-player.name = inputng1
+player.name = gf.selection()
 print(player.name)
+modernterm.sleep(1)
 
+-- Class Selection
 modernterm.clearTerm()
 print(menu2.newGame2)
-io.write("//:> ")
-inputng2 = io.read()
-for i,v in ipairs(classes.classlist) do
-        if inputng2 = classes.classlist[i] then
-            player.class = inputng2
-        else
-            player.class = "Warrior" -- Warrior Bias if you don't select a damn class
-        end
+inputng2 = gf.selection()
+for i = 1,#classes.classlist,1 do
+    if string.lower(inputng2) == classes.classlist[i] then
+        player.class = inputng2
     end
+end
+if player.class == nil or player.class == "" then
+    player.class = "Warrior"
+    print("Input was invalid. Class set to: Warrior")
+end
 print(player.class)
+modernterm.sleep(1)
+
+-- Difficulty Selection
+modernterm.clearTerm()
+print(menu2.newGame3)
+inputng3 = gf.selection("number")
+if tonumber(inputng3) then
+    local switchCase3 = {
+        [1] = function() 
+            player.difficulty = "Easy" 
+        end,
+        [2] = function() 
+            player.difficulty = "Medium" 
+        end,
+        [3] = function() 
+            player.difficulty = "Hard" 
+        end,
+        [4] = function() 
+            player.difficulty = "Hardcore" 
+        end
+    }
+    
+    local case = switchCase3[inputng3]
+    if (case) then
+        case()
+    else
+        print("Input out of bounds, difficulty set to Medium")
+        player.difficulty="Medium"
+    end
+else
+    print("Input Invalid, difficulty set to Medium")
+    player.difficulty="Medium"
+end
+print(player.difficulty)
+modernterm.sleep(1)
+
+-- Confirmation
+modernterm.clearTerm()
+print(menu2.newGame4)
+print("Player Name: "..player.name.."\nClass: "..player.class.."\nDifficulty: "..player.difficulty.."\n")
+modernterm.pauseExec()
+inputng4 = gf.selection()
+if string.lower(inputng4) == "y" then
+    modernterm.sleep(1)
+    gf.resetState("game")
+else
+    modernterm.sleep(1)
+    gf.resetState("newgame")
+end

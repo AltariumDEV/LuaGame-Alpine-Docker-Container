@@ -1,12 +1,24 @@
 local modernterm = {}
 
+-- Operating System Replacement functions (since os.execute() is too complicated.)
+
+local clock = os.clock
+function sleep(n)  -- seconds
+  local t0 = clock()
+  while clock() - t0 <= n do end
+end
+
+function pauseExec()
+    io.read()
+end
+
 -- Terminal Functions
 
 function clearTerm()
     io.write("\027[H\027[2J")
 end
 
--- Color Functions below
+-- Color Functions
 
 function resetColor()
     print("\027[0m")
@@ -33,6 +45,8 @@ function setRGBColor(fgR, fgG, fgB, bgR, bgG, bgB) -- 24 bit variation, allows e
     end
 end
 
+modernterm.sleep = sleep
+modernterm.pauseExec = pauseExec
 modernterm.clearTerm = clearTerm
 modernterm.resetColor = resetColor
 modernterm.setColor = setColor 

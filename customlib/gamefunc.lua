@@ -1,26 +1,60 @@
 local gamefunc = {}
 local modernterm = require("customlib/modernterm")
-local clock = os.clock
 
-function sleep(n)  -- seconds
-  local t0 = clock()
-  while clock() - t0 <= n do end
+-- Selection: Just a selection protocol for the game IO
+
+function selection(m)
+  io.write("//:> ")
+  if m == "number" then
+    temp = io.read("*number")
+  else
+    temp = io.read()
+  end
+  return temp
 end
 
--- Function: resetState - Puts you back to the programmed menu --
+--[[
+  resetState(n)
+
+  -- resetState is used to reset the state back to a previous State if an error occurs.
+     This feature is usually used for user input that is invalid or out of bounds.
+
+     5 current states: main (Main Menu), game (Game Menu), newgame (loads the New Game sequence), settings (opens the settings menu) and debug (opens the debug menu)
+
+]]
+
 function resetState(n)
-  if n == "main" then
+  local switchCase = {
+    ["main"] = function()
       modernterm.clearTerm()
       dofile("main.lua")
-  elseif n == "game" then
+    end,
+    ["game"] = function() 
       modernterm.clearTerm()
-      dofile("basic/game.lua")
+      dofile("game/basic/game.lua")
+    end,
+    ["newgame"] = function()
+      modernterm.clearTerm()
+      dofile("game/mainMenu/newGame.lua")
+    end,
+    ["settings"] = function()
+      modernterm.clearTerm()
+      dofile("game/mainMenu/settings.lua")
+    end,
+    ["debug"] = function()
+      modernterm.clearTerm()
+      dofile("game/basic/debug.lua")
+    end
+  }
+  local case = switchCase[n]
+  if (case) then
+    case()
   else
-      print("Invalid Usage - State not Programmed.")
+    print("Invalid Usage - State not Programmed.")
   end
 end
 
-gamefunc.sleep = sleep
+gamefunc.selection = selection
 gamefunc.resetState = resetState
 
 return gamefunc

@@ -23,6 +23,10 @@ local player = {
     ["difficulty"] = "None",
 }
 
+local money = {
+    ["money"] = 0,
+}
+
 local level = {
     ["level"] = 1,
     ["expNow"] = 0,
@@ -61,6 +65,8 @@ function updateStats()
 end
 stats.updateStats = updateStats
 
+player.inventory = inventory
+player.money = money
 player.stats = stats
 player.level = level
 
