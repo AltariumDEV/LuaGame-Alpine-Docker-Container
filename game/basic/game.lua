@@ -1,6 +1,7 @@
 local menu2 = require("game_assets/gamemenu")
 local modernterm = require("customlib/modernterm")
 local gamefunc = require("customlib/gamefunc")
+local player = require("game/basic/player")
 
 modernterm.clearTerm()
 print(menu2.rpgMenu)
@@ -28,7 +29,8 @@ local switchCase2 = {
         gamefunc.resetState("game")
     end,
     [5] = function()
-        print("Save Game Goes Here")
+        gamefunc.saveGame(player.general.name)
+        print("Game saved!")
         modernterm.sleep(1)
         gamefunc.resetState("game")
     end,

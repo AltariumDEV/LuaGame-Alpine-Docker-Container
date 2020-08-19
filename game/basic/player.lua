@@ -12,28 +12,27 @@
     Important Stats:
     -- strength: The strength stat that gets used for most battles.
     -- defense: The defense stat that gets used for most battles (Changes with the armor you are wearing)
-    -- Effective Max HP: this is basically your MaxHP but with your defense stat already calculated into the equation. This will only be shown on profile and won't be used anywhere else.
     -- agility: This allows you to evade hits easier. The Evasion can never be 100% and is always capped at 80. Some attack damage is scaled on agility
     -- intelligence: This makes spells stronger and allows you to use better versions of spells
 ]]
 
 local player = {
+    -- General Things.
     ["name"] = "None",
     ["class"] = "None",
     ["difficulty"] = "None",
-}
-
-local money = {
+    -- Money
     ["money"] = 0,
-}
-
-local level = {
+    -- Level
     ["level"] = 1,
     ["expNow"] = 0,
-    ["expNeeded"] = 10, 
-}
-
-local stats = {
+    ["expNeeded"] = 10,
+    -- Equipment
+    ["helmet"] = "None",
+    ["armor"] = "None",
+    ["accessory"] = "None",
+    ["weapon"] = "None",
+    -- Stats
     ["hpNow"] = 100,
     ["hpMax"] = 100,
     ["mpNow"] = 100,
@@ -42,12 +41,9 @@ local stats = {
     ["tpMax"] = 10,
     ["str"] = 1,
     ["def"] = 1,
-    ["effHP"] = 0,
     ["agi"] = 1,
     ["int"] = 1,
-}
-
-local inventory = {
+    -- Inventory
     ["s_potionHP"] = 0,
     ["m_potionHP"] = 0,
     ["l_potionHP"] = 0,
@@ -59,15 +55,11 @@ local inventory = {
     ["bread_TP"] = 0,
 }
 
-
-function updateStats()
-    stats.effMaxHP = stats.hpMax * ((stats.defense) / 1.15)
-end
-stats.updateStats = updateStats
-
-player.inventory = inventory
+player.general = general
 player.money = money
-player.stats = stats
 player.level = level
+player.equipped = equipped
+player.stats = stats
+player.inventory = inventory
 
-return stats
+return player

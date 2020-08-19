@@ -1,12 +1,12 @@
 local classes = {}
 
 local classlist = {
-    "warrior",
-    "tank",
-    "archer",
-    "caster",
-    "healer",
-    "engineer",
+    "Warrior",
+    "Tank",
+    "Archer",
+    "Caster",
+    "Healer",
+    "Engineer",
 }
 
 classes.classlist = classlist

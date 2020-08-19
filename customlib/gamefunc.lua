@@ -1,5 +1,6 @@
 local gamefunc = {}
 local modernterm = require("customlib/modernterm")
+local player = require("game/basic/player")
 
 -- Selection: Just a selection protocol for the game IO
 
@@ -54,6 +55,19 @@ function resetState(n)
   end
 end
 
+-- saveGame(player.name)
+
+function saveGame(n)
+  file = io.open("savefiles/"..n..".lrpg", "w")
+    if (file) then
+      for k, v in pairs(player) do file:write(v.."\n") end
+    else
+      print("Error while opening file")
+    end
+    file:close()
+end
+
+gamefunc.saveGame = saveGame
 gamefunc.selection = selection
 gamefunc.resetState = resetState
 
