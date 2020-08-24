@@ -23,7 +23,7 @@ local switchCase = {
         print("Continuing Game.")
         modernterm.sleep(1)
         modernterm.clearTerm()
-        dofile("game/mainMenu/continueGama.lua")
+        dofile("game/mainMenu/continueGame.lua")
     end,
     [3] = function()
         modernterm.clearTerm()

@@ -19,17 +19,15 @@ local switchCase2 = {
         gamefunc.resetState("game")
     end,
     [3] = function()
-        print("Boss Arena Menu Here")
-        modernterm.sleep(1)
-        gamefunc.resetState("game")
+        modernterm.clearTerm()
+        dofile("game/basic/profile.lua")
     end,
     [4] = function()
-        print("Profile Goes here.")
-        modernterm.sleep(1)
-        gamefunc.resetState("game")
+        modernterm.clearTerm()
+        dofile("game/basic/inventory.lua")
     end,
     [5] = function()
-        gamefunc.saveGame(player.general.name)
+        gamefunc.saveGame(player.name)
         print("Game saved!")
         modernterm.sleep(1)
         gamefunc.resetState("game")

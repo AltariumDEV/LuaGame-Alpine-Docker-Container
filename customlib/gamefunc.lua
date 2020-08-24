@@ -60,12 +60,26 @@ end
 function saveGame(n)
   file = io.open("savefiles/"..n..".lrpg", "w")
     if (file) then
-      for k, v in pairs(player) do file:write(v.."\n") end
+      for k, v in pairs(player) do file:write(k.." "..v.."\n") end
     else
       print("Error while opening file")
     end
     file:close()
 end
+
+function loadGame(n)
+  file = io.open("savefiles/"..n..".lrpg", "r")
+  TEMP = {}
+  if (file) then
+    tempString = file:read("l")
+    for i in string.gmatch(tempString, "%S+") do
+      print(i)
+    end      
+  else
+    print("Error while opening file")
+  end
+end
+
 
 gamefunc.saveGame = saveGame
 gamefunc.selection = selection

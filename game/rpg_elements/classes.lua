@@ -6,7 +6,7 @@ local classlist = {
     "Archer",
     "Caster",
     "Healer",
-    "Engineer",
+    "Gunslinger",
 }
 
 classes.classlist = classlist

@@ -55,11 +55,4 @@ local player = {
     ["bread_TP"] = 0,
 }
 
-player.general = general
-player.money = money
-player.level = level
-player.equipped = equipped
-player.stats = stats
-player.inventory = inventory
-
 return player

@@ -4,13 +4,13 @@ mainMenu = [[
 ╔═════════════════╦══════════╗
 ║ LUA RPG PROJECT ║ V. 0.4.6 ║
 ╠════╦════════════╩══════════╣
-║ 1. ║ Start Game          < ║
-║ 2. ║ Load Save Game      < ║
-║ 3. ║ Story               < ║
-║ 4. ║ Settings            < ║
-║ 5. ║ Changelog           < ║
-║ 6. ║ Credits             < ║
-║ 7. ║ Exit Game           < ║
+║ 1. ║ Start Game            ║
+║ 2. ║ Load Save Game        ║
+║ 3. ║ Story                 ║
+║ 4. ║ Settings              ║
+║ 5. ║ Changelog             ║
+║ 6. ║ Credits               ║
+║ 7. ║ Exit Game             ║
 ╚════╩═══════════════════════╝
 ]],
 -- Story -- Gets called when you navigate to "Story" on the Game Main Menu

@@ -13,7 +13,7 @@ newGame2 = [[
 ║    Enter a class below      ║
 ║    Warrior, Tank, Archer,   ║
 ║    Caster, Healer,          ║
-║    Engineer                 ║
+║    Gunslinger               ║
 ╚═════════════════════════════╝
 ]],
 newGame3 = [[
@@ -27,6 +27,20 @@ newGame3 = [[
 ║   4 - Hardcore              ║
 ╚═════════════════════════════╝
 ]],
+newGameWarningHardcore = [[
+╔══════════════╦══════════════╗
+║   New Game   ║  Hardcore    ║
+╠══════════════╩══════════════╣
+║          WARNING!!!         ║
+║    In Hardcore Mode your    ║
+║    death is permanent and   ║
+║    There is no savefiles    ║
+║   Do you want to continue?  ║
+╠═════════════════════════════╣
+║      Y (Yes) - N (No)       ║
+╚═════════════════════════════╝
+If you say no, your difficulty will be set to "Hard" instead.
+]],
 newGame4 = [[
 ╔══════════════╦══════════════╗
 ║   New Game   ║   Confirm    ║
@@ -36,17 +50,40 @@ newGame4 = [[
 ║   N - Start from Scratch    ║
 ╚═════════════════════════════╝
 ]],
+-- Continue Game -- Gets called when you continue game
+contGame1 = [[
+╔══════════════╦══════════════╗
+║    Continue  ║   Name       ║
+╠══════════════╩══════════════╣
+║    Enter your name below    ║
+╚═════════════════════════════╝
+]],
+contGame2 = [[
+╔══════════════╦══════════════╗
+║    Continue  ║              ║
+╠══════════════╩══════════════╣
+║    Please Wait, file is     ║
+║    Being loaded...          ║
+╚═════════════════════════════╝
+]],
+contGame3 = [[
+╔══════════════╦══════════════╗
+║    Continue  ║  Successful  ║
+╠══════════════╩══════════════╣
+║      File was loaded!       ║
+╚═════════════════════════════╝
+]],
 -- RPG Main Menu -- Gets called once you are IN the game
 rpgMenu = [[ 
 ╔═════════════════════════════╗
 ║        Game Screen          ║
 ╠════╦════════════════════════╣
-║ 1. ║ Dungeons             < ║
-║ 2. ║ Shops                < ║
-║ 3. ║ Boss Arena           < ║
-║ 4. ║ Profile              < ║
-║ 5. ║ Save Game            < ║
-║ 6. ║ Exit Game            < ║
+║ 1. ║ Dungeons               ║
+║ 2. ║ Shops                  ║
+║ 3. ║ Profile                ║
+║ 4. ║ Inventory              ║
+║ 5. ║ Save Game              ║
+║ 6. ║ Exit Game              ║
 ╚════╩════════════════════════╝
 ]],
 rpgMenuExit = [[
@@ -60,10 +97,25 @@ rpgMenuExit = [[
 ╚═════════════════════════════╝
 ]],
 -- Working on a better profile screen
-profile = [[
-╔═════════════════════════════╗
-║           Profile           ║
-╚═════════════════════════════╝
+profileHeader = [[
+╔════════════════════════════════════════════╗
+║                  Profile                   ║
+╚════════════════════════════════════════════╝
+]],
+profileFooter = [[
+╔════════════════════════════════════════════╗
+║ Enter - Exit to Game Menu                  ║
+╚════════════════════════════════════════════╝
+]],
+invHeader = [[
+╔════════════════════════════════════════════╗
+║                Inventory                   ║
+╚════════════════════════════════════════════╝
+]],
+invFooter = [[
+╔════════════════════════════════════════════╗
+║ Enter - Exit to Game Menu                  ║
+╚════════════════════════════════════════════╝
 ]],
 }
 

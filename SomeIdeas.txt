@@ -1,0 +1,46 @@
+Dungeon System
+
+1. You walk into a room or start a new dungeon run 
+2. A true RNG decides if you get into a fight (if so, you have to fight first before the next step)
+3. Another true RNG decides if you find any loot in the room 
+4. You then have options like "Move into the next room" or "Abandon Dungeon Run"
+5. At the end of each dungeon you have to fight the dungeons boss after that you get guaranteed loot.
+
+Dungeon Floors
+
+Some Classes are heavily favoured in some of the dungeons, every dungeon can however be completed with every class.
+First Update - 4 Dungeons that require you to be a certain level (except for dungeon 1 which is unlocked instantly)
+Second Update - 2 more dungeons
+Third and Final update will bring 4 more and introduce the final boss of the game.
+
+Hardcore Difficulty
+
+The Game is locked on Hard Difficulty and the Savefile System is disabled.
+After death you get thrown back onto the main menu, without a way to return to your Savefile because you couldn't save.
+
+Stat usage
+
+Strength - Is used in the calculation for damage_taken from your attacks and increases the amount of damage you do to an enemy
+Strength also gives TStr (True Strength), which amplifies the amount of damage that critical hits can do (+15 damage per 1 TStr Point)
+This will probably cause some inbalance in classes, however it can always be balanced later.
+You get a TStr point automatically every 10 Strength Points. (The Weapon does not impact this)
+
+Defense - Is used in the calculation for damage_taken by enemy attacks and reduces the amount of damage you take from an enemy
+Defense also gives a certain amount of TDef (True Defense) which nullifies a certain amount of damage completely (each TDef point reduces damage_taken by 5).
+You get a TDef point automatically every 7 Defense Points. This will help Tanks a lot, however it should be a decent help to every class.
+(Your armor DOES impact the TDef Points)
+
+Agility - Gives you a higher chance to dodge attacks from enemies and impacts multihit skills by allowing them to hit more times (Mainly for Warrior and Gunslinger (Which was previously the engineer))
+Agility also impacts the amount of Tech Points you can have (+5 Tech Points for each Agility point you have), this will be useful for Tank, Warrior and Archer whose skills heavily rely on TP
+
+Intelligence - Increases the effectiveness of spells that use mana (Mainly Caster, Gunslinger and Healer), gives a higher crit chance for every class
+Intelligence should also impact the Mana that you have (+10 mana for each intelligence point you have), This will give a heavy advantage to Classes that use MP however it can also be useful for classes that use TP.
+
+I now need to make balanced formulas for the increase every time you level up
+These also need to be based on what class you play
+
+For example Caster has no use for Strength since he heavily relies on spells...
+While gunslinger heavily relies on Strength and Agility but has no real use for Intelligence
+Or Tank heavily relies on EHP (Effective HP which is calculated from the HP you have * the formula for defense)
+Warrior heavily relies on Intelligence and Strength (Intelligence only because of Crit Chance, however Strength because of TStr which increases the Crit damage you can deal.)
+
