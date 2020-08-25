@@ -27,10 +27,36 @@ local switchCase2 = {
         dofile("game/basic/inventory.lua")
     end,
     [5] = function()
-        gamefunc.saveGame(player.name)
-        print("Game saved!")
-        modernterm.sleep(1)
-        gamefunc.resetState("game")
+        if player.difficulty ~= "Hardcore" then
+            modernterm.clearTerm()
+            if gamefunc.savefile_exists(player.name) == true then
+                print(saveassets.rpgMenuSaveWarning)
+                io.read()
+                userSelection = selection()
+                if string.lower(userSelection) == "y" then
+                    modernterm.clearTerm()
+                    gamefunc.saveGame(player.name)
+                    print(menu2.rpgMenuSaved)
+                    modernterm.sleep(1)
+                    gamefunc.resetState("game")
+                else 
+                    modernterm.clearTerm()
+                    print(saveassets.rpgMenuSaveCancel)
+                    modernterm.sleep(1)
+                    resetState("game")
+                end
+            else
+                modernterm.clearTerm()
+                gamefunc.saveGame(player.name)
+                print(menu2.rpgMenuSaved)
+                modernterm.sleep(1)
+                gamefunc.resetState("game")
+            end
+        else
+            print("Saving your game is disabled in Hardcore mode.\nYou should've read the warning when creating a new game.")
+            modernterm.sleep(1)
+            gamefunc.resetState("game")
+        end
     end,
     [6] = function()
         modernterm.clearTerm()

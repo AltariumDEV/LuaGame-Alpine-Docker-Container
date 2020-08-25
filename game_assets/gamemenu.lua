@@ -96,6 +96,30 @@ rpgMenuExit = [[
 ║       [Y(Yes)/N(No)]        ║
 ╚═════════════════════════════╝
 ]],
+rpgMenuSaveWarning = [[
+╔══════════════╦══════════════╗
+║   Save Game  ║   Warning    ║
+╠══════════════╩══════════════╣
+║   Savefile already exists   ║
+║   Do you want to overwrite  ║
+║            it?              ║
+║       [Y(Yes)/N(No)]        ║
+╚═════════════════════════════╝
+]],
+rpgMenuSaveCancel = [[
+╔══════════════╦══════════════╗
+║   Save Game  ║  Cancelled   ║
+╠══════════════╩══════════════╣
+║     Game was not saved.     ║
+╚═════════════════════════════╝  
+]],
+rpgMenuSaved = [[
+╔══════════════╦══════════════╗
+║   Save Game  ║  Successful  ║
+╠══════════════╩══════════════╣
+║         Game saved!         ║
+╚═════════════════════════════╝
+]],
 -- Working on a better profile screen
 profileHeader = [[
 ╔════════════════════════════════════════════╗

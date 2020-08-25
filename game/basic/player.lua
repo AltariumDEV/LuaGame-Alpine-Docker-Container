@@ -55,4 +55,38 @@ local player = {
     ["bread_TP"] = 0,
 }
 
+local defaults = {
+    ["name"] = "None",
+    ["class"] = "None",
+    ["difficulty"] = "None",
+    ["money"] = 0,
+    ["level"] = 1,
+    ["expNow"] = 0,
+    ["expNeeded"] = 10,
+    ["helmet"] = "None",
+    ["armor"] = "None",
+    ["accessory"] = "None",
+    ["weapon"] = "None",
+    ["hpNow"] = 100,
+    ["hpMax"] = 100,
+    ["mpNow"] = 100,
+    ["mpMax"] = 100,
+    ["tpNow"] = 10,
+    ["tpMax"] = 10,
+    ["str"] = 1,
+    ["def"] = 1,
+    ["agi"] = 1,
+    ["int"] = 1,
+    ["s_potionHP"] = 0,
+    ["m_potionHP"] = 0,
+    ["l_potionHP"] = 0,
+    ["xl_potionHP"] = 0,
+    ["s_potionMP"] = 0,
+    ["m_potionMP"] = 0,
+    ["l_potionMP"] = 0,
+    ["xl_potionMP"] = 0,
+    ["bread_TP"] = 0,
+}
+
+player.defaults = defaults
 return player

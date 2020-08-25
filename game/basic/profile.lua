@@ -4,7 +4,7 @@ local gamefunc = require("customlib/gamefunc")
 local player = require("game/basic/player")
 
 print(menu2.profileHeader)
-print("[ General Information ]\nName: "..player.name.."\nClass: "..player.class.."\nDifficulty: "..player.difficulty.."\n")
+print("[ General Information ]\nName: "..player.name.."\nClass: "..player.class.."\nDifficulty: "..player.difficulty.."\nMoney: "..player.money.."\n")
 print("[ HP, MP, TP Information ]\nHP: "..player.hpNow.."\\"..player.hpMax.."\nMP: "..player.mpNow.."\\"..player.mpMax.."\nTP: "..player.tpNow.."\\"..player.tpMax.."\n")
 print("[ Stats Information ]\nStrength: "..player.str.."\nDefense: "..player.def.."\nAgility: "..player.agi.."\nIntelligence: "..player.int.."\n")
 print("[ Level Information ]\nLevel: "..player.level.."\nEXP: "..player.expNow.."\\"..player.expNeeded.."\n")

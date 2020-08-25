@@ -6,7 +6,10 @@ local gf = require("customlib/gamefunc")
 
 -- Program Initializer --
 
-modernterm.clearTerm()
+modernterm.clearTerm() -- Clears the terminal
+gf.resetGame() -- Resets the file every time the gameState is reset to mainMenu (This makes it impossible to recover Hardcore savegames. :) )
+
+-- First Inputs
 print(menu1.mainMenu)
 io.write("//:> ")
 input1 = io.read("*number")
@@ -17,13 +20,11 @@ local switchCase = {
         print("Stating the New Game Script")
         modernterm.sleep(1)
         modernterm.clearTerm()
-        dofile("game/mainMenu/newGame.lua")
+        gf.resetState("newGame")
     end,
     [2] = function()
-        print("Continuing Game.")
         modernterm.sleep(1)
-        modernterm.clearTerm()
-        dofile("game/mainMenu/continueGame.lua")
+        gf.resetState("loadGame")
     end,
     [3] = function()
         modernterm.clearTerm()

@@ -41,8 +41,16 @@ if tonumber(inputng3) then
         [3] = function() 
             player.difficulty = "Hard" 
         end,
-        [4] = function() 
-            player.difficulty = "Hardcore" 
+        [4] = function()
+            modernterm.clearTerm()
+            print(menu2.newGameWarningHardcore)
+            modernterm.pauseExec()
+            inputng4 = gf.selection()
+            if string.lower(inputng4) == "y" then
+                player.difficulty = "Hardcore" 
+            else
+                player.difficulty = "Hard"                
+            end
         end
     }
     
@@ -71,5 +79,5 @@ if string.lower(inputng4) == "y" then
     gf.resetState("game")
 else
     modernterm.sleep(1)
-    gf.resetState("newgame")
+    gf.resetState("newGame")
 end

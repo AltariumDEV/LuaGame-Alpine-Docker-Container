@@ -1,6 +1,10 @@
 local gamefunc = {}
+
+local wa = require("customlib/workaround")
 local modernterm = require("customlib/modernterm")
 local player = require("game/basic/player")
+local saveassets = require("game_assets/gamemenu")
+local defaults = require("game_assets/defaults")
 
 -- Selection: Just a selection protocol for the game IO
 
@@ -23,6 +27,11 @@ end
      5 current states: main (Main Menu), game (Game Menu), newgame (loads the New Game sequence), settings (opens the settings menu) and debug (opens the debug menu)
 
 ]]
+function resetGame()
+  for k, v in pairs(player) do
+    player[k] = defaults[k]
+  end
+end
 
 function resetState(n)
   local switchCase = {
@@ -34,9 +43,13 @@ function resetState(n)
       modernterm.clearTerm()
       dofile("game/basic/game.lua")
     end,
-    ["newgame"] = function()
+    ["newGame"] = function()
       modernterm.clearTerm()
       dofile("game/mainMenu/newGame.lua")
+    end,
+    ["loadGame"] = function()
+      modernterm.clearTerm()
+      dofile("game/mainMenu/continueGame.lua")
     end,
     ["settings"] = function()
       modernterm.clearTerm()
@@ -57,32 +70,51 @@ end
 
 -- saveGame(player.name)
 
+function savefile_exists(name)
+  local f=io.open("savefiles/"..name..".lrpg","r")
+  if f~=nil then io.close(f) return true else return false end
+end
+
 function saveGame(n)
-  file = io.open("savefiles/"..n..".lrpg", "w")
-    if (file) then
-      for k, v in pairs(player) do file:write(k.." "..v.."\n") end
-    else
-      print("Error while opening file")
-    end
-    file:close()
+      file = io.open("savefiles/"..n..".lrpg", "w")
+      if (file) then
+        for k, v in pairs(player) do file:write(k.." "..v.."\n") end
+      else
+        print("Error while opening file")
+      end
+      file:close()
 end
 
 function loadGame(n)
   file = io.open("savefiles/"..n..".lrpg", "r")
-  TEMP = {}
+  fileEnd = false
+  tempArray = {}
   if (file) then
-    tempString = file:read("l")
-    for i in string.gmatch(tempString, "%S+") do
-      print(i)
-    end      
+    while fileEnd == false do
+      local tempString = file:read("l")
+      if tempString ~= "" and tempString ~= nil then
+        for k,v in next, string.split(tempString, ' ') do 
+          if k == 1 then
+            tempLoc = v
+          else
+            tempVal = v
+          end
+          player[tempLoc] = tempVal
+        end
+      else
+        fileEnd = true
+      end
+    end
   else
     print("Error while opening file")
   end
 end
 
-
+gamefunc.savefile_exists = savefile_exists
 gamefunc.saveGame = saveGame
+gamefunc.loadGame = loadGame
 gamefunc.selection = selection
+gamefunc.resetGame = resetGame
 gamefunc.resetState = resetState
 
 return gamefunc
