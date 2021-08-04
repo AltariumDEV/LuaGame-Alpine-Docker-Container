@@ -1,2 +1,3 @@
-# luagame-docker-project
-A docker image to instantly launch a Lua Project inside of an Alpine shell (Not finished completely, do not use please and thank you.)
+# LuaGame-Alpine-Docker-Container
+This project was mainly going to be used for running Lua projects in a fast way.
+The reason why LuaGame is associated with it is because the source code I used was from an old, abandoned build of LuaGame
